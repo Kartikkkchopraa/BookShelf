@@ -14,19 +14,16 @@
   <body>
     <div class="container">
       <h1>Aryan's Book Shelf</h1>
-      <hr>
+      <hr />
 
       <form action="/new" method="post">
         <button class="new-button" type="submit">+</button>
       </form>
-      
 
       <ul style="list-style-type: none">
         <% for(let i=0 ; i < books.length ; i++){ %>
         <li class="item">
           <div class="book">
-            
-            
             <img
               class="book-image"
               src="https://covers.openlibrary.org/b/id/<%=books[i].cover_id %>-M.jpg"
@@ -39,10 +36,9 @@
             <div class="date-ratings">
               <div class="date"><small> <%= books[i].date %></small></div>
 
-              
               <div class="ratings-<%= books[i].id %>">
                 <small>Ratings:</small>
-                
+
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
@@ -51,9 +47,7 @@
               </div>
             </div>
 
-            <p class="content">
-              <%= books[i].summary %>
-            </p>
+            <p class="content"><%= books[i].summary %></p>
 
             <div
               class="notes-edit"
@@ -63,7 +57,7 @@
 
               <div>
                 <form action="/edit" method="post">
-                  <input type="hidden" name="EditId" value="id"/>
+                  <input type="hidden" name="EditId" value="id" />
                   <button class="edit-button" type="submit">
                     <img class="icon" src="/assets/pencil-solid2.svg" alt="" />
                   </button>
@@ -73,8 +67,22 @@
           </div>
         </li>
         <% } %>
-        
       </ul>
     </div>
+
+    <script>
+      window.onload = function() {
+        const data = <%- JSON.stringify(books) %>; //convert into js object
+        // console.log(data);
+        for(let i=0 ; i < data.length ; i++){
+          // console.log(document.querySelectorAll(".ratings-" + data[i].id +" span"));
+          // console.log(data[i].ratings);
+          let star_element = document.querySelectorAll(".ratings-" + data[i].id +" span");
+          for(let j=0 ; j < data[i].ratings ; j++){
+            star_element[j].classList.add("checked");
+          }
+        }
+      };
+    </script>
   </body>
 </html>
