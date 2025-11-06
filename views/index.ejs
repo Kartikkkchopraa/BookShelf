@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Saver</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Aryan's Book Shelf</h1>
+      <hr>
+
+      <form action="/new" method="post">
+        <button class="new-button" type="submit">+</button>
+      </form>
+      
+
+      <ul style="list-style-type: none">
+        <% for(let i=0 ; i < books.length ; i++){ %>
+        <li class="item">
+          <div class="book">
+            
+            
+            <img
+              class="book-image"
+              src="https://covers.openlibrary.org/b/id/<%=books[i].cover_id %>-M.jpg"
+              alt=""
+            />
+
+            <h2><%= books[i].title %></h2>
+            <small>Author: <%= books[i].author %></small>
+
+            <div class="date-ratings">
+              <div class="date"><small> <%= books[i].date %></small></div>
+
+              
+              <div class="ratings-<%= books[i].id %>">
+                <small>Ratings:</small>
+                
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </div>
+            </div>
+
+            <p class="content">
+              <%= books[i].summary %>
+            </p>
+
+            <div
+              class="notes-edit"
+              style="display: flex; justify-content: space-between"
+            >
+              <p style="margin: 0"><a href="">READ NOTES</a></p>
+
+              <div>
+                <form action="/edit" method="post">
+                  <input type="hidden" name="EditId" value="id"/>
+                  <button class="edit-button" type="submit">
+                    <img class="icon" src="/assets/pencil-solid2.svg" alt="" />
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% } %>
+        
+      </ul>
+    </div>
+  </body>
+</html>

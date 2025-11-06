@@ -1,0 +1,115 @@
+body {
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #cf0f47;
+}
+
+h2 {
+  font-size: 30px;
+  color: #ff0b55;
+  margin: 0px 0px 25px 0px;
+}
+
+a {
+  color: #ff0b55;
+  text-decoration: none;
+}
+
+p {
+  text-align: justify;
+  color: #ffdede;
+  font-size: 20px;
+}
+
+small {
+  color: #ff0b55;
+}
+
+.container {
+  margin: auto;
+  width: 50%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.book-image {
+  margin: 0px 30px 20px 0px;
+  width: 150px;
+  display: block;
+  width: 150px;
+  float: left;
+}
+
+.date-ratings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checked {
+  color: orange;
+}
+
+li {
+  margin: 0px 0px 50px 0px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+}
+
+.edit-button {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.new-button{
+    height: 30px;
+    width: 30px;
+    font-size: 25px;
+    color:#ffdede;
+    background-color: #ff0b55;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 20px 0 20px 0;
+}
+
+.fa-star {
+    /* the star is a text so all the properties of text gets applied to the stars. */
+    -webkit-text-stroke-width: 1px; 
+    -webkit-text-stroke-color: orange; 
+}
+
+hr {
+  border: none;             
+  height: 3px;              
+  background-color: #ff0b55;  
+  margin: 0;   
+}
+
+
+.new-form input,
+.new-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 2px solid #ff0b55;
+  border-radius: 8px;
+  font-size: 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.new-form textarea {
+  min-height: 200px;          
+  resize: vertical;           
+}

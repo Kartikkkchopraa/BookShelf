@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add New Book</h1>
+
+      <div class="new-form">
+        <form action="/addnew" method="post">
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Book Title"
+            required
+            minlength="3"
+            maxlength="100"
+          />
+          <br />
+
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author Name"
+            required
+          />
+          <br />
+
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            placeholder="Rating (1-5)"
+            min="1"
+            max="5"
+            required
+          />
+          <br />
+
+          <textarea
+            name="summary"
+            id="summary"
+            placeholder="Write summary..."
+            required
+            minlength="20"
+          ></textarea>
+          <br />
+
+          <button type="submit" style="color: #ffdede; background-color: #ff0b55; border: none; padding: 8px; border-radius: 10px; outline: none;">Submit</button>
+        </form>
+        <% if(locals.error){ %>
+        <p><%= error %></p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
