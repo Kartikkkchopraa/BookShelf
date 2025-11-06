@@ -81,7 +81,7 @@ app.post("/edit",async (req,res)=>{
 
     
     const edit_id = parseInt(req.body.EditId);
-    console.log(edit_id);
+    // console.log(edit_id);
 
     const result = await db.query("select id , title , author , ratings , cover_id , to_char(date , 'YYYY-MM-DD') as date , summary from books where id = $1",[edit_id]);
     // console.log(result.rows[0]);

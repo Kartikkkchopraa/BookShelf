@@ -23,6 +23,7 @@ p {
   text-align: justify;
   color: #ffdede;
   font-size: 20px;
+  overflow-wrap: break-word;
 }
 
 small {
