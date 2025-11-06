@@ -22,7 +22,7 @@ db.connect();
 app.get("/", async (req, res) => {
 
     const result = await db.query("select id , title , author , ratings , cover_id , to_char(date , 'YYYY-MM-DD') as date , summary from books")
-    console.log(result.rows);
+    
 
     res.render("index.ejs" , {books : result.rows});
 });
