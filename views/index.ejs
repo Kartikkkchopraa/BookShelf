@@ -34,7 +34,7 @@
             <small>Author: <%= books[i].author %></small>
 
             <div class="date-ratings">
-              <div class="date"><small> <%= books[i].date %></small></div>
+              <div class="date"><small> Date: <%= books[i].date %></small></div>
 
               <div class="ratings-<%= books[i].id %>">
                 <small>Ratings:</small>
@@ -57,7 +57,7 @@
 
               <div>
                 <form action="/edit" method="post">
-                  <input type="hidden" name="EditId" value="id" />
+                  <input type="hidden" name="EditId" value="<%= books[i].id %>" />
                   <button class="edit-button" type="submit">
                     <img class="icon" src="/assets/pencil-solid2.svg" alt="" />
                   </button>

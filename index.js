@@ -76,6 +76,34 @@ app.post("/addnew", async (req, res) => {
   }
 });
 
+
+app.post("/edit",async (req,res)=>{
+
+    
+    const edit_id = parseInt(req.body.EditId);
+    console.log(edit_id);
+
+    const result = await db.query("select id , title , author , ratings , cover_id , to_char(date , 'YYYY-MM-DD') as date , summary from books where id = $1",[edit_id]);
+    console.log(result.rows[0]);
+
+
+    res.render("new.ejs",{data: result.rows[0]});
+
+});
+
+app.post("/editdata" , async (req,res)=> {
+
+
+    // console.log(req.body);
+    const edit_id = parseInt(req.body.EditId);
+    // console.log(edit_id);
+
+    await db.query("update books set summary = $1 , ratings =$2 where id = $3",[req.body.summary,req.body.rating,edit_id]);
+
+    res.redirect("/");
+
+})
+
 app.listen(port, () => {
   console.log(`the server is running on port: ${port}`);
 });

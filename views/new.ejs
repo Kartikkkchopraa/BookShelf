@@ -9,9 +9,11 @@
   <body>
     <div class="container">
       <h1>Add New Book</h1>
-
+    
       <div class="new-form">
-        <form action="/addnew" method="post">
+        <% if(locals.data){ %>
+        <form action="/editdata" method="post">
+        <input type="hidden" name="EditId" value="<%= data.id %>" id="<%= data.id %>">
           <input
             type="text"
             name="title"
@@ -20,6 +22,67 @@
             required
             minlength="3"
             maxlength="100"
+            value="<%= data.title %>"
+          />
+          <br />
+
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author Name"
+            required
+            value="<%= data.author %>"
+          />
+          <br />
+
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            placeholder="Rating (1-5)"
+            min="1"
+            max="5"
+            required
+            value="<%= data.ratings %>"
+          />
+          <br />
+
+          <textarea
+            name="summary"
+            id="summary"
+            placeholder="Write summary..."
+            required
+            minlength="20"
+            
+          ><%= data.summary %></textarea>
+          <br />
+
+          <button
+            type="submit"
+            style="
+              color: #ffdede;
+              background-color: #ff0b55;
+              border: none;
+              padding: 8px;
+              border-radius: 10px;
+              outline: none;
+            "
+          >
+            Submit
+          </button>
+        </form>
+        <% }else { %>
+            <form action="/addnew" method="post">
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Book Title"
+            required
+            minlength="3"
+            maxlength="100"
+            
           />
           <br />
 
@@ -52,8 +115,21 @@
           ></textarea>
           <br />
 
-          <button type="submit" style="color: #ffdede; background-color: #ff0b55; border: none; padding: 8px; border-radius: 10px; outline: none;">Submit</button>
+          <button
+            type="submit"
+            style="
+              color: #ffdede;
+              background-color: #ff0b55;
+              border: none;
+              padding: 8px;
+              border-radius: 10px;
+              outline: none;
+            "
+          >
+            Submit
+          </button>
         </form>
+        <% } %>
         <% if(locals.error){ %>
         <p><%= error %></p>
         <% } %>
